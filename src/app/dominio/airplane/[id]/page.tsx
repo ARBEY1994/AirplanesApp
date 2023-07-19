@@ -46,11 +46,11 @@ export default function AirplaneDetails({
   const endDate =
     airplane.registries[0]?.endDate && new Date(airplane.registries[0].endDate);
 
-  const stardate = startDate ? startDate.toISOString().split("T")[0] : "";
-  const enddate = endDate ? endDate.toISOString().split("T")[0] : "";
+  const stardate = startDate && startDate.toISOString().split("T")[0];
+  const enddate = endDate && endDate.toISOString().split("T")[0];
 
-  const [fecha1, setFecha1] = useState(stardate);
-  const [fecha2, setFecha2] = useState(enddate);
+  const [fecha1, setFecha1] = useState(stardate || "");
+  const [fecha2, setFecha2] = useState(enddate || "");
 
   //register dos
   const startDate2 =
