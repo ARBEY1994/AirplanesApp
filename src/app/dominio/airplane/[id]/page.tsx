@@ -30,44 +30,44 @@ export default function AirplaneDetails({
   if (!airplane) {
     return <div>No se encontró el avión</div>;
   }
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
   //register uno
   const startDate =
-    airplane.registries[0]?.startDate &&
+    airplane.registries.length > 0 &&
     new Date(airplane.registries[0].startDate);
 
   const endDate =
-    airplane.registries[0]?.endDate && new Date(airplane.registries[0].endDate);
+    airplane.registries.length > 0 && new Date(airplane.registries[0].endDate);
 
-  const stardate = startDate && startDate.toISOString().split("T")[0];
-  const enddate = endDate && endDate.toISOString().split("T")[0];
+  const stardate = (startDate && startDate.toISOString().split("T")[0]) || "";
+  const enddate = (endDate && endDate.toISOString().split("T")[0]) || "";
 
-  const [fecha1, setFecha1] = useState(stardate || "");
-  const [fecha2, setFecha2] = useState(enddate || "");
+  const [fecha1, setFecha1] = useState(stardate);
+  const [fecha2, setFecha2] = useState(enddate);
 
   //register dos
   const startDate2 =
-    airplane.registries[1]?.startDate &&
+    airplane.registries.length > 0 &&
     new Date(airplane.registries[1].startDate);
 
   const endDate2 =
-    airplane.registries[1]?.endDate && new Date(airplane.registries[1].endDate);
+    airplane.registries.length > 0 && new Date(airplane.registries[1].endDate);
 
-  const startdate2 = startDate2 ? startDate2.toISOString().split("T")[0] : "";
-  const enddate2 = endDate2 ? endDate2.toISOString().split("T")[0] : "";
+  const startdate2 =
+    (startDate2 && startDate2.toISOString().split("T")[0]) || "";
+  const enddate2 = (endDate2 && endDate2.toISOString().split("T")[0]) || "";
 
   const [fecha3, setFecha3] = useState(startdate2);
   const [fecha4, setFecha4] = useState(enddate2);
 
   const handleFechaChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFecha1(event.target.value);
+  };
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   const handleFechaChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
