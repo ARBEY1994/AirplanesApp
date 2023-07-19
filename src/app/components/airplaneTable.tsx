@@ -37,7 +37,7 @@ const AirplaneTable: React.FC<AirplaneTableProps> = ({ airplanes }) => {
               <tr>
                 <td className="border border-[#1b303f] px-4 py-2">Status</td>
                 {[...Array(30)].map((_, index) => {
-                  const currentDay = index;
+                  const currentDay = index + 1;
 
                   const matchingRegistry = airplane.registries.find(
                     (registry) => {
