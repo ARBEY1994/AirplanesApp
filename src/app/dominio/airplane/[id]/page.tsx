@@ -23,6 +23,14 @@ export default function AirplaneDetails({
   params: { id: string };
 }) {
   const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => {
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
   const airplane = data.airplanes.find(
     (airplane) => airplane.id.toString() === params.id
   );
@@ -61,13 +69,6 @@ export default function AirplaneDetails({
 
   const handleFechaChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFecha1(event.target.value);
-  };
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
   };
 
   const handleFechaChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
