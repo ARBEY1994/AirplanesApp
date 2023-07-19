@@ -22,15 +22,6 @@ export default function AirplaneDetails({
 }: {
   params: { id: string };
 }) {
-  const [modalOpen, setModalOpen] = useState(false);
-  const openModal = () => {
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
   const airplane = data.airplanes.find(
     (airplane) => airplane.id.toString() === params.id
   );
@@ -38,34 +29,35 @@ export default function AirplaneDetails({
   if (!airplane) {
     return <div>No se encontró el avión</div>;
   }
-  //register uno
-  const startDate =
-    airplane.registries.length > 0 &&
-    new Date(airplane.registries[0].startDate);
 
-  const endDate =
-    airplane.registries.length > 0 && new Date(airplane.registries[0].endDate);
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
 
-  const stardate = (startDate && startDate.toISOString().split("T")[0]) || "";
-  const enddate = (endDate && endDate.toISOString().split("T")[0]) || "";
+  const getFormattedDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split("T")[0];
+  };
 
-  const [fecha1, setFecha1] = useState(stardate);
-  const [fecha2, setFecha2] = useState(enddate);
+  const registryOneStartDate =
+    airplane.registries[0]?.startDate &&
+    getFormattedDate(airplane.registries[0].startDate);
+  const registryOneEndDate =
+    airplane.registries[0]?.endDate &&
+    getFormattedDate(airplane.registries[0].endDate);
 
-  //register dos
-  const startDate2 =
-    airplane.registries.length > 0 &&
-    new Date(airplane.registries[1].startDate);
+  const [fecha1, setFecha1] = useState(registryOneStartDate || "");
+  const [fecha2, setFecha2] = useState(registryOneEndDate || "");
 
-  const endDate2 =
-    airplane.registries.length > 0 && new Date(airplane.registries[1].endDate);
+  const registryTwoStartDate =
+    airplane.registries[1]?.startDate &&
+    getFormattedDate(airplane.registries[1].startDate);
+  const registryTwoEndDate =
+    airplane.registries[1]?.endDate &&
+    getFormattedDate(airplane.registries[1].endDate);
 
-  const startdate2 =
-    (startDate2 && startDate2.toISOString().split("T")[0]) || "";
-  const enddate2 = (endDate2 && endDate2.toISOString().split("T")[0]) || "";
-
-  const [fecha3, setFecha3] = useState(startdate2);
-  const [fecha4, setFecha4] = useState(enddate2);
+  const [fecha3, setFecha3] = useState(registryTwoStartDate || "");
+  const [fecha4, setFecha4] = useState(registryTwoEndDate || "");
 
   const handleFechaChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFecha1(event.target.value);
