@@ -1,0 +1,68 @@
+{
+  "airplanes": [
+    {
+      "id": 1,
+      "name": 1,
+      "registries": [
+        {
+          "startDate": "2023-06-08T00:00:00.000Z",
+          "endDate": "2023-06-13T00:00:00.000Z",
+          "status": "In Maintenance"
+        },
+        {
+          "startDate": "2023-06-14T00:00:00.000Z",
+          "endDate": "2023-08-26T00:00:00.000Z",
+          "status": "Scheduled"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": 2,
+      "registries": [
+        {
+          "startDate": "2023-06-01T00:00:00.000Z",
+          "endDate": "2023-06-23T00:00:00.000Z",
+          "status": "In Maintenance"
+        },
+        {
+          "startDate": "2023-06-24T00:00:00.000Z",
+          "endDate": "2023-08-30T00:00:00.000Z",
+          "status": "Scheduled"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": 3,
+      "registries": []
+    },
+    {
+      "id": 4,
+      "name": 4,
+      "registries": [
+        {
+          "startDate": "2023-06-01T00:00:00.000Z",
+          "endDate": "2023-06-13T00:00:00.000Z",
+          "status": "In Maintenance"
+        },
+        {
+          "startDate": "2023-06-22T00:00:00.000Z",
+          "endDate": "2023-08-30T00:00:00.000Z",
+          "status": "Scheduled"
+        }
+      ]
+    },
+    {
+      "id": 5,
+
+      "name": 5,
+      "registries": []
+    },
+    {
+      "id": 6,
+      "name": 6,
+      "registries": []
+    }
+  ]
+}
