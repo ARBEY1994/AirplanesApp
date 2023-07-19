@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import data from "@/app/api/dataAirplanes.json";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
@@ -25,28 +25,51 @@ export default function AirplaneDetails({
   const airplane = data.airplanes.find(
     (airplane) => airplane.id.toString() === params.id
   );
+  const [modalOpen, setModalOpen] = useState(false);
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+
+  const getFormattedDate = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toISOString().split("T")[0];
+  };
+
+  const registryOneStartDate =
+    airplane?.registries[0]?.startDate &&
+    getFormattedDate(airplane.registries[0].startDate);
+  const registryOneEndDate =
+    airplane?.registries[0]?.endDate &&
+    getFormattedDate(airplane.registries[0].endDate);
+
+  const [fecha1, setFecha1] = useState(registryOneStartDate || "");
+  const [fecha2, setFecha2] = useState(registryOneEndDate || "");
+
+  const registryTwoStartDate =
+    airplane?.registries[1]?.startDate &&
+    getFormattedDate(airplane.registries[1].startDate);
+  const registryTwoEndDate =
+    airplane?.registries[1]?.endDate &&
+    getFormattedDate(airplane.registries[1].endDate);
+
+  const [fecha3, setFecha3] = useState(registryTwoStartDate || "");
+  const [fecha4, setFecha4] = useState(registryTwoEndDate || "");
 
   if (!airplane) {
     return <div>No se encontró el avión</div>;
   }
 
-  const [modalOpen, setModalOpen] = useState(false);
-  const [fecha1, setFecha1] = useState("");
-  const [fecha2, setFecha2] = useState("");
-  const [fecha3, setFecha3] = useState("");
-  const [fecha4, setFecha4] = useState("");
-
-  const openModal = () => {
-    setModalOpen(true);
+  const handleFechaChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFecha1(event.target.value);
   };
 
-  const closeModal = () => {
-    setModalOpen(false);
+  const handleFechaChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFecha2(event.target.value);
   };
-
-  const getFormattedDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toISOString().split("T")[0];
+  const handleFechaChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFecha3(event.target.value);
+  };
+  const handleFechaChange4 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFecha4(event.target.value);
   };
 
   return (
@@ -82,7 +105,11 @@ export default function AirplaneDetails({
               {airplane.registries[0] ? (
                 <div>
                   <p className="text-white">Fecha inicial</p>
-                  <input type="date" value={fecha1} />
+                  <input
+                    type="date"
+                    value={fecha1}
+                    onChange={handleFechaChange1}
+                  />
                   <select name="" id="" className="mx-2">
                     <option value="">{airplane.registries[0].status}</option>
                   </select>
@@ -93,7 +120,11 @@ export default function AirplaneDetails({
               {airplane.registries[1] ? (
                 <div>
                   <p className="text-white">Fecha inicial</p>
-                  <input type="date" value={fecha3} />
+                  <input
+                    type="date"
+                    value={fecha3}
+                    onChange={handleFechaChange3}
+                  />
                   <select name="" id="" className="mx-2">
                     <option value="">{airplane.registries[1].status}</option>
                   </select>
@@ -104,7 +135,11 @@ export default function AirplaneDetails({
               {airplane.registries[0] && airplane.registries[0].endDate ? (
                 <div>
                   <p className="text-white">Fecha final</p>
-                  <input type="date" value={fecha2} />
+                  <input
+                    type="date"
+                    value={fecha2}
+                    onChange={handleFechaChange2}
+                  />
                 </div>
               ) : (
                 <p>No hay registros</p>
@@ -112,7 +147,11 @@ export default function AirplaneDetails({
               {airplane.registries[1] && airplane.registries[1].endDate ? (
                 <div>
                   <p className="text-white">Fecha final</p>
-                  <input type="date" value={fecha4} />
+                  <input
+                    type="date"
+                    value={fecha4}
+                    onChange={handleFechaChange4}
+                  />
                 </div>
               ) : (
                 <p>No hay registros</p>
