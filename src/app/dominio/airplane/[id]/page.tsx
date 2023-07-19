@@ -50,8 +50,8 @@ export default function AirplaneDetails({
   const stardate = startDate ? startDate.toISOString().split("T")[0] : "";
   const enddate = endDate ? endDate.toISOString().split("T")[0] : "";
 
-  const [fecha1, setFecha1] = useState(stardate);
-  const [fecha2, setFecha2] = useState(enddate);
+  const [fecha1, setFecha1] = useState(() => stardate);
+  const [fecha2, setFecha2] = useState(() => enddate);
 
   //register dos
   const startDate2 = airplane.registries[1]?.startDate
@@ -63,8 +63,8 @@ export default function AirplaneDetails({
   const startdate2 = startDate2 ? startDate2.toISOString().split("T")[0] : "";
   const enddate2 = endDate2 ? endDate2.toISOString().split("T")[0] : "";
 
-  const [fecha3, setFecha3] = useState(startdate2);
-  const [fecha4, setFecha4] = useState(enddate2);
+  const [fecha3, setFecha3] = useState(() => startdate2);
+  const [fecha4, setFecha4] = useState(() => enddate2);
 
   const handleFechaChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFecha1(event.target.value);
