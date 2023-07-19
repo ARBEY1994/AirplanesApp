@@ -25,12 +25,10 @@ export default function Home() {
             objectFit: "cover",
           }}
         />
-        <div className="absolute top-1/2 right-1/2  transform translate-x-1/2 -translate-y-1/2 ">
+        <div className="absolute md:top-1/2 md:right-1/2 text-center md:transform md:translate-x-1/2 md:-translate-y-1/2">
           <h1
-            className="text-7xl font-bold text-center text-[#4a4846] dark:text-white"
-            style={{
-              backdropFilter: "blur(8px)",
-            }}
+            className="text-3xl md:text-7xl font-bold text-center text-[#4a4846] dark:text-white"
+            style={{ backdropFilter: "blur(8px)" }}
           >
             Bienvenido a nuestra página, agenda tu viaje ahora!
           </h1>

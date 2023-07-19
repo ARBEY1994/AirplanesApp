@@ -13,7 +13,7 @@ const Navbar = () => {
               <Image src={Logo} alt="" width={100} height={100} />
             </Link>
 
-            <ul className="md:flex  px-4 mx-auto font-semibold space-x-12 ml-auto">
+            <ul className="md:flex   sm:mx-auto font-semibold space-x-12 ">
               <li>
                 <Link className="hover:text-gray-200 ml-[3em]" href="#">
                   Soporte
