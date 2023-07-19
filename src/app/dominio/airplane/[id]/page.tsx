@@ -44,26 +44,6 @@ export default function AirplaneDetails({
     setModalOpen(false);
   };
 
-  useEffect(() => {
-    const registryOneStartDate =
-      airplane.registries[0]?.startDate &&
-      getFormattedDate(airplane.registries[0].startDate);
-    const registryOneEndDate =
-      airplane.registries[0]?.endDate &&
-      getFormattedDate(airplane.registries[0].endDate);
-    const registryTwoStartDate =
-      airplane.registries[1]?.startDate &&
-      getFormattedDate(airplane.registries[1].startDate);
-    const registryTwoEndDate =
-      airplane.registries[1]?.endDate &&
-      getFormattedDate(airplane.registries[1].endDate);
-
-    setFecha1(registryOneStartDate || "");
-    setFecha2(registryOneEndDate || "");
-    setFecha3(registryTwoStartDate || "");
-    setFecha4(registryTwoEndDate || "");
-  }, [airplane]);
-
   const getFormattedDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toISOString().split("T")[0];
