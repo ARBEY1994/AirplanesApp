@@ -1,5 +1,6 @@
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -16,9 +17,11 @@ export default function Home() {
           padding: 0,
         }}
       >
-        <img
+        <Image
           src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Copa_Airlines_aircraft_parked_at_Tocumen_Terminal_2.jpg"
           alt=""
+          width={0}
+          height={0}
           style={{
             width: "100%",
             height: "100%",

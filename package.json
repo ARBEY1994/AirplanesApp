@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format:fix": "prettier src/ --write .",
+    "format:check": "prettier --check 'src/**/*'",
+    "lint:fix": "eslint src/ --fix ."
   },
   "dependencies": {
     "@material-tailwind/react": "^2.0.6",
@@ -17,11 +20,19 @@
     "axios": "^1.4.0",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.10",
+    "eslint-config-prettier": "^8.9.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "next": "13.4.10",
     "postcss": "8.4.26",
+    "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.1.6"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/ARBEY1994/AirplanesApp.git",
+  "author": "liamgabriel2021 <arbey221@gmail.com>",
+  "license": "MIT"
 }

@@ -50,7 +50,7 @@ const AirplaneTable: React.FC<AirplaneTableProps> = ({ airplanes }) => {
                         currentDay >= startDay && currentDay <= endDay;
 
                       return isWithinRange;
-                    }
+                    },
                   );
 
                   let cellColor = "";

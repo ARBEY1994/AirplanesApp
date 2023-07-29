@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import data from "@/app/api/dataAirplanes.json";
 import Navbar from "@/app/components/navbar";
 import Footer from "@/app/components/footer";
+import Image from "next/image";
 
 interface Airplane {
   id: number;
@@ -23,7 +24,7 @@ export default function AirplaneDetails({
   params: { id: string };
 }) {
   const airplane = data.airplanes.find(
-    (airplane) => airplane.id.toString() === params.id
+    (airplane) => airplane.id.toString() === params.id,
   );
   const [modalOpen, setModalOpen] = useState(false);
   const openModal = () => setModalOpen(true);
@@ -79,9 +80,11 @@ export default function AirplaneDetails({
       <h1 className="absolute text-6xl ml-[40%] sm:ml-0 sm:top-1/2 sm:right-1/2  sm:transform sm:translate-x-1/2 sm:-translate-y-1/2">
         {airplane.id}
       </h1>
-      <img
+      <Image
         src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Copa_Airlines_aircraft_parked_at_Tocumen_Terminal_2.jpg"
         alt=""
+        width={0}
+        height={0}
         style={{
           width: "100%",
           height: "100%",
