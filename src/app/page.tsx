@@ -1,6 +1,5 @@
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
-import Image from "next/image";
 
 export default function Home() {
   return (
@@ -15,19 +14,11 @@ export default function Home() {
           alignItems: "center",
           margin: 0,
           padding: 0,
+          backgroundImage:
+            "url(https://upload.wikimedia.org/wikipedia/commons/f/f3/Copa_Airlines_aircraft_parked_at_Tocumen_Terminal_2.jpg)",
+          backgroundSize: "cover",
         }}
       >
-        <Image
-          src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Copa_Airlines_aircraft_parked_at_Tocumen_Terminal_2.jpg"
-          alt=""
-          width={0}
-          height={0}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        />
         <div className="absolute md:top-1/2 md:right-1/2 text-center md:transform md:translate-x-1/2 md:-translate-y-1/2">
           <h1
             className="text-3xl md:text-7xl font-bold text-center text-[#4a4846] dark:text-white"
